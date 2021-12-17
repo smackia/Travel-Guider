@@ -7,11 +7,14 @@
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/drawable-v24/white_button_rounded.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/drawable/ic_black_color_black_24dp.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/drawable/ic_nav_sign_out.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/drawable/ic_nav_user.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/drawable/nav_header_main_background.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/drawable/nav_selector.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/drawable/shape_button_rounded.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/layout/activity_gets_started.xml" value="0.17572463768115942" />
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/layout/activity_main.xml" value="0.17572463768115942" />
+        <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/layout/activity_maps.xml" value="0.2210144927536232" />
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/layout/activity_my_profile.xml" value="0.24003623188405798" />
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/layout/activity_sign_up.xml" value="0.17572463768115942" />
@@ -21,6 +24,7 @@
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/layout/main_content.xml" value="0.15579710144927536" />
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/layout/nav_header_main.xml" value="0.15579710144927536" />
         <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/menu/activity_main_drawer.xml" value="0.25" />
+        <entry key="..\:/Users/skara/AndroidStudioProjects/TravelGuider/app/src/main/res/menu/bottom_menu.xml" value="0.25" />
       </map>
     </option>
   </component>

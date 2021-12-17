@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Where we guide you to the right place"
+        android:text="Where we guides you to every place"
         android:textSize="20dp"
          />
 

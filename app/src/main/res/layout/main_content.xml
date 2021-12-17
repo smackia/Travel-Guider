@@ -1,18 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+   <LinearLayout
+       android:layout_marginTop="80dp"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:layout_marginBottom="20dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+      <Button
+          android:id="@+id/location_btn"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Location"
+          android:background="@drawable/shape_button_rounded"
+          android:layout_marginStart="35dp"
+          android:layout_marginEnd="35dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginBottom="16dp"
+          android:padding="16dp"
+          android:drawableLeft="@drawable/ic_baseline_location_on_24"
+          />
+       
+       <GridLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:rowCount="2"
+           android:columnCount="2"
+           android:layout_margin="5dp"
+           android:alignmentMode="alignMargins"
+           android:layout_gravity="center_horizontal"
+           android:columnOrderPreserved="false">
+           
+           <androidx.cardview.widget.CardView
+               android:layout_width="170dp"
+               android:layout_height="170dp"
+               app:cardCornerRadius="10dp"
+               app:cardElevation="5dp"
+               app:cardBackgroundColor="#363A43"
+               android:layout_margin="10dp">
+               
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical"
+                   android:gravity="center">
+
+                   <ImageView
+                       android:layout_width="100dp"
+                       android:layout_height="100dp"
+                       android:layout_gravity="center"
+                       android:src="@drawable/delhi"
+                       />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Delhi"
+                       android:layout_marginTop="20dp"
+                       android:textColor="@color/white"
+                       android:textSize="18sp"/>
+
+                   
+                   
+               </LinearLayout>
+               
+               
+               
+           </androidx.cardview.widget.CardView>
+
+
+           <androidx.cardview.widget.CardView
+               android:layout_width="170dp"
+               android:layout_height="170dp"
+               app:cardCornerRadius="10dp"
+               app:cardElevation="5dp"
+               app:cardBackgroundColor="#363A43"
+               android:layout_margin="10dp">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical"
+                   android:gravity="center">
+
+                   <ImageView
+                       android:layout_width="100dp"
+                       android:layout_height="100dp"
+                       android:layout_gravity="center"
+                      android:src="@drawable/mumbai"
+                       />
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Mumbai"
+                       android:layout_marginTop="20dp"
+                       android:textColor="@color/white"
+                       android:textSize="18sp"/>
+
+
+
+               </LinearLayout>
+
+
+
+           </androidx.cardview.widget.CardView>
+           <androidx.cardview.widget.CardView
+               android:layout_width="170dp"
+               android:layout_height="170dp"
+               app:cardCornerRadius="10dp"
+               app:cardElevation="5dp"
+               app:cardBackgroundColor="#363A43"
+               android:layout_margin="10dp">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical"
+                   android:gravity="center">
+                   <ImageView
+                       android:layout_width="100dp"
+                       android:layout_height="100dp"
+                       android:layout_gravity="center"
+                      android:src="@drawable/hyderabad1"
+                       />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Hyderabad"
+                       android:layout_marginTop="20dp"
+                       android:textColor="@color/white"
+                       android:textSize="18sp"/>
+
+
+
+               </LinearLayout>
+
+
+
+           </androidx.cardview.widget.CardView>
+           <androidx.cardview.widget.CardView
+               android:layout_width="170dp"
+               android:layout_height="170dp"
+               app:cardCornerRadius="10dp"
+               app:cardElevation="5dp"
+               app:cardBackgroundColor="#363A43"
+               android:layout_margin="10dp">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical"
+                   android:gravity="center">
+
+                   <ImageView
+                       android:layout_width="100dp"
+                       android:layout_height="100dp"
+                       android:layout_gravity="center"
+                      android:src="@drawable/chennai1"
+                       />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Chennai"
+                       android:layout_marginTop="20dp"
+                       android:textColor="@color/white"
+                       android:textSize="18sp"/>
+
+
+
+               </LinearLayout>
+
+
+
+           </androidx.cardview.widget.CardView>
+           
+           
+           
+       </GridLayout>
+       
+       
+       
+       
+   </LinearLayout>
+
+</ScrollView>
