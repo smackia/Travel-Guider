@@ -1,6 +1,8 @@
 package com.example.travelguider.activities
 
 import android.Manifest
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationRequest
@@ -40,8 +42,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
 
-    private var latitude:Double=0.toDouble()
-    private var longitude:Double=0.toDouble()
+    private var latitude:Double=0.0
+    private var longitude:Double=0.0
 
 
     private lateinit var mLastLocation:Location
@@ -69,6 +71,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        latitude=intent.getDoubleExtra("LATITUDE",0.0)
+        longitude=intent.getDoubleExtra("LONGITUDE",0.0)
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
@@ -85,7 +90,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 builLocationRequest()
                 buildLocationCallBack();
                 fusedLocationProviderClient=LocationServices.getFusedLocationProviderClient(this)
-                fusedLocationProviderClient.requestLocationUpdates(com.google.android.gms.location.LocationRequest(),locationCallback, Looper.myLooper()!!)
+                fusedLocationProviderClient.requestLocationUpdates(com.google.android.gms.location.LocationRequest()
+                    ,locationCallback, Looper.myLooper()!!)
             }
 
         }
@@ -94,7 +100,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             builLocationRequest()
             buildLocationCallBack();
             fusedLocationProviderClient=LocationServices.getFusedLocationProviderClient(this)
-            fusedLocationProviderClient.requestLocationUpdates(com.google.android.gms.location.LocationRequest(),locationCallback, Looper.myLooper()!!)
+            fusedLocationProviderClient.requestLocationUpdates(com.google.android.gms.location.LocationRequest()
+                ,locationCallback, Looper.myLooper()!!)
         }
 
         bottom_navigation_view.setOnNavigationItemSelectedListener { item->
@@ -153,7 +160,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
                             //Move Camera
                             mMap!!.moveCamera(CameraUpdateFactory.newLatLng(latLng))
-                            mMap!!.animateCamera(CameraUpdateFactory.zoomTo(20f))
+                            mMap!!.animateCamera(CameraUpdateFactory.zoomTo(16f))
 
 
 
@@ -177,7 +184,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         googlePlaceUrl.append("?location=$latitude,$longitude")
         googlePlaceUrl.append("&radius=1000") //10km
         googlePlaceUrl.append("&types=$typePlace")
-        googlePlaceUrl.append("&key=AIzaSyBlB5Iv-Yzxec20Empz6R4K0ZSv2ZZHkkw")
+        googlePlaceUrl.append("&key=AIzaSyCpGCLMhBR7m7MYVvai-fZyaDbY9qJLkfg")
 
         Log.d("URL ", googlePlaceUrl.toString())
         return googlePlaceUrl.toString()
@@ -187,12 +194,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun buildLocationCallBack() {
         locationCallback=object :LocationCallback(){
             override fun onLocationResult(p0: LocationResult) {
-                mLastLocation=p0!!.locations.get(p0!!.locations.size-1) //Get Lat location
+                mLastLocation=p0!!.lastLocation //Get Lat location
                 if(mMarker!=null){
                     mMarker!!.remove()
                 }
-                latitude=mLastLocation.latitude
-                longitude=mLastLocation.longitude
+                if(latitude==0.0) latitude=mLastLocation.latitude
+                Log.d("lat", latitude.toString())
+                if(longitude==0.0) longitude=mLastLocation.longitude
+                Log.d("long", longitude.toString())
 
                 val latLng=LatLng(latitude,longitude)
                 val markerOptions=MarkerOptions()
@@ -243,12 +252,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         when(requestCode){
             MY_PERMISSION_CODE->{
                 if(grantResults.isNotEmpty() && grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                    if(ContextCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED)
+                    if(ContextCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION)==
+                        PackageManager.PERMISSION_GRANTED)
                         if (checkLocationPermission()){
                             builLocationRequest()
                             buildLocationCallBack();
                             fusedLocationProviderClient=LocationServices.getFusedLocationProviderClient(this)
-                            fusedLocationProviderClient.requestLocationUpdates(com.google.android.gms.location.LocationRequest(),locationCallback, Looper.myLooper()!!)
+                            fusedLocationProviderClient.requestLocationUpdates(com.google.android.gms.location.LocationRequest()
+                                ,locationCallback, Looper.myLooper()!!)
                             mMap!!.isMyLocationEnabled=true
                         }
 
@@ -280,7 +291,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
        //Init Google Play Service
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M)
         {
-            if(ContextCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED){
+            if(ContextCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION)==
+                PackageManager.PERMISSION_GRANTED){
                 mMap!!.isMyLocationEnabled=true
             }
         }
@@ -290,5 +302,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         //Enable Zoom control
 
         mMap.uiSettings.isZoomControlsEnabled=true
+
+        //Make event click on Marker
+
+        mMap!!.setOnMarkerClickListener {
+            marker->
+            if(marker.snippet!=null) {
+                //When user select market , just get result of place assign to static variable
+                Common.currentResult = currentPlace!!.results!![Integer.parseInt(marker.snippet)]
+                //Start new activity
+                startActivity(Intent(this, ViewPlace::class.java))
+            }
+            true
+        }
+
     }
 }

@@ -25,14 +25,15 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
 
-            var currentUserID=FirestoreClass().getCurrentUserId()
-
-            if(currentUserID.isNotEmpty()){
-                startActivity(Intent(this, MainActivity::class.java))
-            }
-            else{
-                startActivity(Intent(this, GetsStartedActivity::class.java))
-            }
+//            var currentUserID=FirestoreClass().getCurrentUserId()
+//
+//            if(currentUserID.isNotEmpty()){
+//                startActivity(Intent(this, MainActivity::class.java))
+//            }
+//            else{
+//                startActivity(Intent(this, MainActivity::class.java))
+//            }
+            startActivity(Intent(this, MainActivity::class.java))
 
             finish()
         },2500)

@@ -13,12 +13,107 @@
        android:orientation="vertical"
        android:layout_marginBottom="20dp">
 
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Explore"
+           android:textSize="25dp"
+           android:textColor="#363a43"
+           android:textStyle="bold"
+           android:fontFamily="sans-serif-black"
+           android:layout_marginLeft="40dp"/>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:gravity="center"
+           android:orientation="horizontal"
+           android:layout_marginTop="30dp"
+           >
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:gravity="center"
+               >
+               <ImageView
+                   android:layout_width="70dp"
+                   android:layout_margin="10dp"
+                   android:layout_height="88dp"
+                   android:background="@drawable/fastfood"
+                   android:layout_gravity="center"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Food"/>
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:gravity="center"
+               >
+               <ImageView
+                   android:layout_width="70dp"
+                   android:layout_margin="10dp"
+                   android:layout_height="88dp"
+                   android:background="@drawable/shopping"
+                   android:layout_gravity="center"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Shopping"/>
+
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:gravity="center"
+               >
+               <ImageView
+                   android:layout_width="70dp"
+                   android:layout_margin="10dp"
+                   android:layout_height="88dp"
+                   android:background="@drawable/cinema"
+                   android:layout_gravity="center"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Cinema"/>
+
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:gravity="center"
+               >
+               <ImageView
+                   android:layout_width="70dp"
+                   android:layout_margin="10dp"
+                   android:layout_height="88dp"
+                   android:background="@drawable/passport"
+                   android:layout_gravity="center"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Travel"/>
+
+           </LinearLayout>
+
+
+
+       </LinearLayout>
+
       <Button
           android:id="@+id/location_btn"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="Location"
-          android:background="@drawable/shape_button_rounded"
+          android:background="@drawable/shadow_rounded"
           android:layout_marginStart="35dp"
           android:layout_marginEnd="35dp"
           android:layout_marginTop="16dp"
@@ -26,11 +121,25 @@
           android:padding="16dp"
           android:drawableLeft="@drawable/ic_baseline_location_on_24"
           />
+
+
+
+
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Popular Cities"
+           android:textSize="25dp"
+           android:textColor="#363a43"
+           android:textStyle="bold"
+           android:fontFamily="sans-serif-black"
+           android:layout_marginLeft="40dp"/>
        
        <GridLayout
-           android:layout_width="match_parent"
+           android:layout_width="wrap_content"
            android:layout_height="match_parent"
-           android:rowCount="2"
+           android:rowCount="3"
            android:columnCount="2"
            android:layout_margin="5dp"
            android:alignmentMode="alignMargins"
@@ -38,10 +147,11 @@
            android:columnOrderPreserved="false">
            
            <androidx.cardview.widget.CardView
+               android:id="@+id/delhi"
                android:layout_width="170dp"
                android:layout_height="170dp"
-               app:cardCornerRadius="10dp"
-               app:cardElevation="5dp"
+               app:cardCornerRadius="15dp"
+               app:cardElevation="10dp"
                app:cardBackgroundColor="#363A43"
                android:layout_margin="10dp">
                
@@ -76,6 +186,7 @@
 
 
            <androidx.cardview.widget.CardView
+               android:id="@+id/mumbai"
                android:layout_width="170dp"
                android:layout_height="170dp"
                app:cardCornerRadius="10dp"
@@ -111,6 +222,7 @@
 
            </androidx.cardview.widget.CardView>
            <androidx.cardview.widget.CardView
+               android:id="@+id/hyderabad"
                android:layout_width="170dp"
                android:layout_height="170dp"
                app:cardCornerRadius="10dp"
@@ -146,6 +258,7 @@
 
            </androidx.cardview.widget.CardView>
            <androidx.cardview.widget.CardView
+               android:id="@+id/Chennai"
                android:layout_width="170dp"
                android:layout_height="170dp"
                app:cardCornerRadius="10dp"
@@ -180,6 +293,77 @@
 
 
 
+           </androidx.cardview.widget.CardView>
+
+
+           <androidx.cardview.widget.CardView
+               android:id="@+id/kolkata"
+               android:layout_width="170dp"
+               android:layout_height="170dp"
+               app:cardCornerRadius="15dp"
+               app:cardElevation="10dp"
+               app:cardBackgroundColor="#363A43"
+               android:layout_margin="10dp">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical"
+                   android:gravity="center">
+
+                   <ImageView
+                       android:layout_width="100dp"
+                       android:layout_height="100dp"
+                       android:layout_gravity="center"
+                       android:src="@drawable/kolkata"
+                       />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Kolkata"
+                       android:layout_marginTop="20dp"
+                       android:textColor="@color/white"
+                       android:textSize="18sp"/>
+
+
+
+               </LinearLayout>
+
+
+
+           </androidx.cardview.widget.CardView>
+
+           <androidx.cardview.widget.CardView
+               android:id="@+id/lucknow"
+               android:layout_width="170dp"
+               android:layout_height="170dp"
+               app:cardCornerRadius="15dp"
+               app:cardElevation="10dp"
+               app:cardBackgroundColor="#363A43"
+               android:layout_margin="10dp">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical"
+                   android:gravity="center">
+
+                   <ImageView
+                       android:layout_width="100dp"
+                       android:layout_height="100dp"
+                       android:layout_gravity="center"
+                       android:src="@drawable/lucknow"
+                       />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Lucknow"
+                       android:layout_marginTop="20dp"
+                       android:textColor="@color/white"
+                       android:textSize="18sp"/>
+               </LinearLayout>
            </androidx.cardview.widget.CardView>
            
            
